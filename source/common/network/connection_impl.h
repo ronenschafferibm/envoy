@@ -88,6 +88,7 @@ public:
   const ConnectionSocket::OptionsSharedPtr& socketOptions() const override {
     return socket_->options();
   }
+  void setRequestedServerName(absl::string_view server_name) override;
   absl::string_view requestedServerName() const override { return socket_->requestedServerName(); }
 
   // Network::BufferSource

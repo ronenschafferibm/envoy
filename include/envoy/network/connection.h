@@ -182,6 +182,11 @@ public:
   virtual const Ssl::Connection* ssl() const PURE;
 
   /**
+   * Set requested server name (e.g. SNI in TLS).
+   */
+  virtual void setRequestedServerName(absl::string_view server_name) PURE;
+
+  /**
    * @return requested server name (e.g. SNI in TLS), if any.
    */
   virtual absl::string_view requestedServerName() const PURE;

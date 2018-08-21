@@ -510,6 +510,11 @@ void ConnectionImpl::setConnectionStats(const ConnectionStats& stats) {
   connection_stats_.reset(new ConnectionStats(stats));
 }
 
+void ConnectionImpl::setRequestedServerName(absl::string_view server_name) {
+  ENVOY_CONN_LOG(debug, "setting requested server name: {}", *this, server_name);
+  socket_->setRequestedServerName(server_name);
+}
+
 void ConnectionImpl::updateReadBufferStats(uint64_t num_read, uint64_t new_size) {
   if (!connection_stats_) {
     return;
